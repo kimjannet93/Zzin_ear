@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Zzin-ear 찐이어</title>
+		<style>
+				div { text-align: center; }
+			</style>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/icon/PL.ico">
+    </head>
+    <body class="subpage">
+		<!-- Header -->
+        <header id="header">
+            <h1><a href="home">Zzin-ear <span><font size="5em" face="휴먼편지체" color="White" >찐이어</font></span></a></h1>
+            <a href="#menu"><font size="5em" face="휴먼편지체" color="White" >Menu</font></a>	
+        </header>
+
+    <!-- Nav -->
+        <nav id="menu">
+            <ul class="links">
+				<li><a href="home"><font size="5em" face="휴먼편지체" color="White" >Home</font></a></li>
+				<li><a href="musicchart?site=melon"><font size="5em" face="휴먼편지체" color="White" >  MELON Chart</font></a></li>
+				<li><a href="musicchart?site=genie"><font size="5em" face="휴먼편지체" color="White" >  GENIE Chart</font></a></li>
+				<li><a href="musicchart?site=bugs"><font size="5em" face="휴먼편지체" color="White" >  BUGS Chart</font></a></li>
+				<li><a href="zzinchart?day=1211"><font size="5em" face="휴먼편지체" color="White" >Zzin-ear Chart</font></a></li>
+            </ul>
+        </nav>
+        <!-- Main -->
+		<div id="main">
+            <!-- One -->
+            <section class="wrapper style1">
+                <div class="inner">
+                    <header class="align-center">
+                        {% if data.0.site == 'melon' %}
+                            <h2>{{data_melon.0.title}}</h2>
+                            <font size="6em">
+                            <h1>{{mo}}월 {{da}}일 {{data_melon.0.hour}}시 <a href="musicchart?site=melon" title="멜론차트 돌아가기">{{data_melon.0.site}}</a><a style="font-size:60px; color:yellow"> {{data_melon.0.rank}}위 </a></h1>
+                            </font>
+                        {% elif data.0.site == 'genie' %}
+                            <h2>{{data_genie.0.title}}</h2>
+                            <font size="6em">
+                            <h1>{{mo}}월 {{da}}일 {{data_genie.0.hour}}시 <a href="musicchart?site=genie" title="지니차트 돌아가기">{{data_genie.0.site}}</a> <a style="font-size:60px; color:yellow"> {{data_genie.0.rank}}위 </a> </h1>
+                            </font>
+                        {% elif data.0.site == 'bugs' %}
+                            <h2>{{data_bugs.0.title}}</h2>
+                            <font size="6em">
+                            <h1>{{mo}}월 {{da}}일 {{data_bugs.0.hour}}시 <a href="musicchart?site=bugs" title="벅스차트 돌아가기"> {{data_bugs.0.site}}</a> <a style="font-size:60px; color:yellow"> {{data_bugs.0.rank}}위 </a></h1>
+                            </font>
+                        {% endif %}
+                    </header>
+                    <!-- 2 Column Video Section -->
+                    <div class="flex flex-2">
+                        {% if data.0.site == 'melon' %}  
+                            <div class="video col" >
+                                <img src="/static/img/벅스로고.png" width="200px" height="200px"alt="" />
+                                <div style="font-size:50px; font-weight:bold; font-family:impact;">
+                                <p class="caption" >
+                                        <span style="color:yellow">
+                                        {% if data_bugs.0.site is null %} 
+                                            OUT of 100
+                                        {% else %}
+                                            {{data_bugs.0.rank}} 위
+                                        {% endif %}
+                                        </span>
+                                </p>
+                                <a href="musicchart?site=bugs" class="link"><span>Click Me</span></a>
+                                </div>
+                            </div>
+                            <div class="video col">
+                                <img src="/static/img/지니로고.png" width="200px" height="200px" alt="" />
+                                <div style="font-size:50px; font-weight:bold; font-family:impact;">
+                                <p class="caption" >
+                                    <span style="color:yellow">
+                                        {% if data_genie.0.site is null %} 
+                                            OUT of 100
+                                        {% else %}
+                                            {{data_genie.0.rank}} 위
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <a href="musicchart?site=genie" class="link"><span>Click Me</span></a>
+                                </div>
+                            </div>
+                        {% elif data.0.site == 'genie' %}
+                            <div class="video col">
+                                <img src="/static/img/멜론로고.png" width="200px" height="200px" alt="" />
+                                <div style="font-size:50px; font-weight:bold; font-family:impact;">
+                                <p class="caption" >
+                                    <span style="color:yellow">
+                                        {% if data_melon.0.site is null %} 
+                                            OUT of 100
+                                        {% else %}
+                                            {{data_melon.0.rank}} 위
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <a href="musicchart?site=melon" class="link"><span>Click Me</span></a>
+                                </div>
+                            </div>
+                            <div class="video col">
+                                <img src="/static/img/벅스로고.png" width="200px" height="200px" alt="" />
+                                <div style="font-size:50px; font-weight:bold; font-family:impact;">
+                                <p class="caption" >
+                                    <span style="color:yellow">
+                                        {% if data_bugs.0.site is null %} 
+                                            OUT of 100
+                                        {% else %}
+                                            {{data_bugs.0.rank}} 위
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <a href="musicchart?site=bugs" class="link"><span>Click Me</span></a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="video col">
+                                <img src="/static/img/지니로고.png" width="200px" height="200px" alt="" />
+                                <div style="font-size:50px; font-weight:bold; font-family:impact;">
+                                <p class="caption" >
+                                    <span style="color:yellow">
+                                        {% if data_genie.0.site is null %} 
+                                            OUT of 100
+                                        {% else %}
+                                            {{data_genie.0.rank}} 위
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <a href="musicchart?site=genie" class="link"><span>Click Me</span></a>
+                                </div>
+                            </div>
+                            <div class="video col">
+                                <img src="/static/img/멜론로고.png" width="200px" height="200px" alt="" />
+                                <div style="font-size:50px; font-weight:bold; font-family:impact;">
+                                <p class="caption" >
+                                    <span style="color:yellow">
+                                        {% if data_melon.0.site is null %} 
+                                            OUT of 100
+                                        {% else %}
+                                            {{data_melon.0.rank}} 위
+                                        {% endif %}
+                                    </span>
+                                </p>
+                                <a href="musicchart?site=melon" class="link"><span>Click Me</span></a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div >
+                        <ul class = "action fit">
+                            <a href = "zzinranking?title={{data.0.title}}&day={{data.0.day}}" class= "button big alt">Zzin-ear순위보기</a>
+                        </ul>    
+                    </div>
+                </div>
+            </section>
+                <!-- Footer -->
+                    <footer id="footer">
+                        <div class="copyright">
+                            &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Coverr</a>. Video: <a href="https://coverr.co">Coverr</a>.
+                        </div>
+                    </footer>
+        
+                <!-- Scripts -->
+                    <script src="/static/js/jquery.min.js"></script>
+                    <script src="/static/js/jquery.scrolly.min.js"></script>
+                    <script src="/static/js/skel.min.js"></script>
+                    <script src="/static/js/util.js"></script>
+                    <script src="/static/js/main.js"></script>
+    </body>
+</html>

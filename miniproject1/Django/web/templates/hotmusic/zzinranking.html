@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Zzin-ear 찐이어</title>
+		<style>
+				div { text-align: center; }
+			</style>
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/icon/PL.ico">
+        <script type="text/javascript">
+            var audio = new Audio();
+            audio.src = "/static/music/jyp.mp3";
+        </script>
+    </head>
+    <body class="subpage">
+		<!-- Header -->
+        <header id="header">
+            <h1><a href="home">Zzin-ear <span><font size="5em" face="휴먼편지체" color="White" >찐이어</font></span></a></h1>
+            <a href="#menu"><font size="5em" face="휴먼편지체" color="White" >Menu</font></a>	
+        </header>
+
+    <!-- Nav -->
+        <nav id="menu">
+            <ul class="links">
+				<li><a href="home"><font size="5em" face="휴먼편지체" color="White" >Home</font></a></li>
+				<li><a href="musicchart?site=melon"><font size="5em" face="휴먼편지체" color="White" >  MELON Chart</font></a></li>
+				<li><a href="musicchart?site=genie"><font size="5em" face="휴먼편지체" color="White" >  GENIE Chart</font></a></li>
+				<li><a href="musicchart?site=bugs"><font size="5em" face="휴먼편지체" color="White" >  BUGS Chart</font></a></li>
+				<li><a href="zzinchart?day=1211"><font size="5em" face="휴먼편지체" color="White" >Zzin-ear Chart</font></a></li>
+            </ul>
+        </nav>
+        <!-- Main -->
+		<div id="main">
+            <!-- One -->
+            <section class="wrapper style1">
+                <div class="inner">
+                    <header class="align-center">
+                        <h2>{{tmp1}}월 {{tmp2}}일 Zzin-ear Ranking</h2>
+                    </header>
+                    <!-- 2 Column Video Section -->
+                    <br>
+                        <div>
+                            <img src="/static/img/logo.png"  width="200px" height="200px"alt="" />
+                        </div>
+                        </br>
+                        <div>
+                            <ul class="actions">
+                                    <li>
+                                        <input type="button" id="my_hover5" onClick="audio.play();" value="PLAY"/>
+                                    </li>
+                                    <li>
+                                        <input type="button" id="my_hover6" onClick="audio.pause();" value="PAUSE"/>
+                                    </li>
+                                    <li>
+                                        <input type="button" onClick="audio.pause();" value="재생위치"/>
+                                        <input type="number" onChange="audio.currentTime=this.value" style='background:rgb(6, 32, 56)'/>
+                                    </li>
+                                    <li>
+                                        <input type="button" onClick="audio.pause();" value="볼륨"/>
+                                        <input type="number" onChange="audio.volume=this.value" style='background:rgb(6, 32, 56)'/>
+                                    </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div style="font-size:50px; font-weight:bold; font-family:impact;">
+                            <p class="caption" >
+                                <br />
+                                {{title}}</br>
+                                <span style="color:yellow">
+                                {{rank}}위
+                                </span>
+                            </p>
+                            </div>
+                        </div>
+                        <div class="video">
+                            <div class="video-wrapper">
+                               <iframe width="560" height="315" src="https://www.youtube.com/embed/D1PvIWdJ8xo" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                         </div>
+                    </divclass="row uniform">    
+                    <div >
+                        <ul class = "action fit">
+                            <input type="hidden" name="site" value={{day}}/>
+                            <a href = "zzinchart?day={{day}}" id="my_hover7" class= "button big alt">Zzin-ear</a>
+                        </ul>    
+                    </div>
+                </div>
+            </section>
+                <!-- Footer -->
+                    <footer id="footer">
+                        <div class="copyright">
+                            &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Coverr</a>. Video: <a href="https://coverr.co">Coverr</a>.
+                        </div>
+                    </footer>
+        
+                <!-- Scripts -->
+                    <script src="/static/js/jquery.min.js"></script>
+                    <script src="/static/js/jquery.scrolly.min.js"></script>
+                    <script src="/static/js/skel.min.js"></script>
+                    <script src="/static/js/util.js"></script>
+                    <script src="/static/js/main.js"></script>
+    </body>
+</html>

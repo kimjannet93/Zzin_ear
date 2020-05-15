@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<!--
+	Broadcast by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>{{data.0.site.upper}}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/static/css/main.css" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/static/icon/PL.ico">
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="home">Zzin-ear <span><font size="5em" face="휴먼편지체" color="White" >찐이어</font></span></a></h1>
+				<a href="#menu"><font size="5em" face="휴먼편지체" color="White" >Menu</font></a>	
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="home"><font size="5em" face="휴먼편지체" color="White" >Home</font></a></li>
+					<li><a href="musicchart?site=melon"><font size="5em" face="휴먼편지체" color="White" >  MELON Chart</font></a></li>
+					<li><a href="musicchart?site=genie"><font size="5em" face="휴먼편지체" color="White" >  GENIE Chart</font></a></li>
+					<li><a href="musicchart?site=bugs"><font size="5em" face="휴먼편지체" color="White" >  BUGS Chart</font></a></li>
+					<li><a href="zzinchart?day=1211"><font size="5em" face="휴먼편지체" color="White" >Zzin-ear Chart</font></a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+
+			<!-- One -->
+			<section class="wrapper style1">
+				<form action="/hotmusic/musicchart" method="post">
+					<div class="inner">
+						<header class="align-center">
+							
+							<h2><font size="30em" face="휴먼편지체" color="White" >{{data.0.site.upper}} Chart</font></h2>
+							<font size="30em" face="휴먼편지체" color="White" >TOP 100</font>
+						</header>
+						
+						<div class="row uniform">
+							<div class="1u" style="float:right">
+								<input type="submit" id="my_hover3" class="button fit" value="조회"></input>
+							</div>
+							<div class="1.5u" style="float:right">
+								
+									<select name="hour" id="hour" style='background:rgb(6, 32, 56);'>
+										<option value="">-시간-</option>
+										<option value="0">00:00</option>
+										<option value="1">01:00</option>
+										<option value="7">07:00</option>
+										<option value="8">08:00</option>
+										<option value="9">09:00</option>
+										<option value="10">10:00</option>
+										<option value="11">11:00</option>
+										<option value="12">12:00</option>
+										<option value="13">13:00</option>
+										<option value="14">14:00</option>
+										<option value="15">15:00</option>
+										<option value="16">16:00</option>
+										<option value="17">17:00</option>
+										<option value="18">18:00</option>
+										<option value="19">19:00</option>
+										<option value="20">20:00</option>
+										<option value="21">21:00</option>
+										<option value="22">22:00</option>
+										<option value="23">23:00</option>
+									</select>
+								
+							</div>		
+							<div class="1.5u" style="float:right">
+																
+									<select  name="day" id="day" style='background:rgb(6, 32, 56)'>
+										<option value="">-날짜-</option>
+										<option value="1211">2019-12-11</option>
+										<option value="1212">2019-12-12</option>
+										<option value="1213">2019-12-13</option>
+										<option value="1214">2019-12-14</option>
+										<option value="1215">2019-12-15</option>
+										<option value="1216">2019-12-16</option>
+										<option value="1217">2019-12-17</option>
+										<option value="1218">2019-12-18</option>
+									</select>
+									<input type="hidden" name="site" value="{{data.0.site}}" />
+						
+							</div>
+							<div class='3u' style="float:left">
+								<font size="5em" face="휴먼편지체" color="White" >{{mo}}월 {{da}}일 {{data.0.hour}}시 차트입니당 *^^*</font>
+							</div>
+						</br>
+						</div>
+						
+					<div class="3u" style="float:right">	
+					<input type="text" name="title_name"  placeholder="찾고 싶은 제목을 입력하세요."/>
+					</div>
+					</br>
+					</br>
+					</br>
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>순위</th>
+									<th>곡</th>
+									<th>아티스트</th>
+								</tr>
+							</thead>
+							<tbody>
+								{%for tmp in data%}
+								<tr>
+									<td>{{tmp.rank}}</td>
+									<td><a href="ranking?site={{tmp.site}}&title={{tmp.title}}&day={{tmp.day}}&hour={{tmp.hour}}&rank={{tmp.rank}}" title="제목 순위 보기">{{tmp.title}}</td>
+									<td>{{tmp.artist}}</td>
+									{%endfor%}
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				</form>
+			</section>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="copyright">
+					&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Coverr</a>. Video: <a href="https://coverr.co">Coverr</a>.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="/static/js/jquery.min.js"></script>
+			<script src="/static/js/jquery.scrolly.min.js"></script>
+			<script src="/static/js/skel.min.js"></script>
+			<script src="/static/js/util.js"></script>
+			<script src="/static/js/main.js"></script>
+
+	</body>
+</html>
